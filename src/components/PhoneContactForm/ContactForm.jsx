@@ -1,5 +1,5 @@
 import {useState} from "react";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { nanoid } from "nanoid";
 import {useAddContactsMutation} from 'components/Redux/fetchContacts';
 import { ContactFormContainer,Button,Form,LabelOfInputName,Input, LabelOfInputPhone } from "./ContactForm.styled";
