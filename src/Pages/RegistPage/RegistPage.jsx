@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import { RegistViewContainer,FormRegist,LabelForName,LabelForEmail,LabelForPassword } from "./RegistView.styled";
+import { RegistViewContainer,FormRegist,LabelForName,LabelForEmail,LabelForPassword } from "./RegistPage.styled";
 
-export const RegistView=()=>{
+export const RegistPage=()=>{
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
@@ -10,14 +10,7 @@ export const RegistView=()=>{
     const emailId=nanoid()
     const passwordId=nanoid()
 
-    const formHandleSubmit=(data)=>{
-        data={
-            name:data.name,
-            email:data.email,
-            password:data.password,
-            id:nanoid(),
-        }
-    }
+    
 
     const onHandleInput=(e)=>{
         const{name,value}=e.currentTarget
@@ -31,13 +24,20 @@ export const RegistView=()=>{
             default:window.alert('Такой тип ввода не обрабатывается')
             }
         }
-        const onHandleSubmit=(e)=>{
+        const FormHandleSubmit=(e)=>{
             e.preventDefault()
-            formHandleSubmit({name,email,password})
+            
+            resetState()
+        }
+
+        const resetState=()=>{
+            setName('');
+            setEmail('');
+            setPassword('')
         }
     
     return(<RegistViewContainer>
-        <FormRegist onSubmit={onHandleSubmit}>
+        <FormRegist onSubmit={FormHandleSubmit}>
 <LabelForName htmlFor={nameId}>Enter your name</LabelForName>
 <input
 name='name'

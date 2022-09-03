@@ -1,11 +1,11 @@
 import React from "react";
-import {PhonebookApp, HeaderApp, HeaderSectionContacts} from './PhoneBook.styled'
+import {PhonebookApp, HeaderApp, HeaderSectionContacts} from './PhoneBookPage.styled'
 import { ContactForm } from "components/PhoneContactForm/ContactForm";
 import {Contacts} from 'components/Contacts/Contacts';
 import { Filter } from "components/UserFilter/Filter";
 import {useGetContactsQuery} from 'components/Redux/fetchContacts';
 
-export const PhoneBook=()=>{
+export const PhoneBookPage=()=>{
   
   const {data:contacts}=useGetContactsQuery();
   

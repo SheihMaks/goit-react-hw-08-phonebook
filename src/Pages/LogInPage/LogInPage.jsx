@@ -1,21 +1,14 @@
 import { useState } from "react"
-import { FormContainer,Form,LabelForEmail, LabelForPassword } from "./LogInView.styled"
+import { FormContainer,Form,LabelForEmail, LabelForPassword } from "./LogInPage.styled"
+import { useLogInMutation } from "components/Redux/FetchUser"
 import { nanoid } from "nanoid"
-export const LoginView=()=>{
+
+export const LoginPage=()=>{
 const[email,setEmail]=useState('')
 const[password,setPassword]=useState('')
+const [logIn]=useLogInMutation();
 const emailId=nanoid()
 const passwordId=nanoid()
-
-const formHandleSubmit=(data)=>{
-    data={
-        email:data.email,
-        password:data.password,
-        id:nanoid(),
-    }
-
-
-}
 
 const onHandleInput=(e)=>{
     const{name,value}=e.currentTarget
@@ -29,13 +22,20 @@ const onHandleInput=(e)=>{
 
 }
 
-const onHandleSubmit=(e)=>{
+const formHandleSubmit=(e)=>{
     e.preventDefault()
-    formHandleSubmit({email,password})
+    console.log({email,password})
+    logIn({email,password})
+    resetState()
+}
+
+const resetState=()=>{
+    setEmail('')
+    setPassword('')
 }
 
 return(<FormContainer>
-<Form onSubmit={onHandleSubmit}>
+<Form onSubmit={formHandleSubmit}>
 <LabelForEmail htmlFor={emailId}>Enter your Email</LabelForEmail>
 <input
 name='email'
