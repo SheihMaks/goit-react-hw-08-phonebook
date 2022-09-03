@@ -8,4 +8,4 @@ export const AuthNavLink=styled(NavLink)`
 text-decoration:none;
 &.active{
     color:blue;
-}`
+}`;
