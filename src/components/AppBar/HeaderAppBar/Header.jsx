@@ -11,6 +11,8 @@ export const Header=()=>{
         <LinksContainer>
         <NavLinkStyled to='/'>Главная</NavLinkStyled>
         <NavLinkStyled to='contacts'>Контакты</NavLinkStyled>
+        </LinksContainer>
+        <LinksContainer>
         {isLogged ? <UserMenu/> : <AuthNav/>}
         </LinksContainer>
     </HeaderContainer>

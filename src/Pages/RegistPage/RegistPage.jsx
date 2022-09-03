@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import { RegistViewContainer,FormRegist,LabelForName,LabelForEmail,LabelForPassword } from "./RegistPage.styled";
+import { RegistViewContainer,FormRegist,LabelForName,LabelForEmail,LabelForPassword,InputRegistrationForm } from "./RegistPage.styled";
 
 export const RegistPage=()=>{
     const [name,setName]=useState('')
@@ -39,7 +39,7 @@ export const RegistPage=()=>{
     return(<RegistViewContainer>
         <FormRegist onSubmit={FormHandleSubmit}>
 <LabelForName htmlFor={nameId}>Enter your name</LabelForName>
-<input
+<InputRegistrationForm
 name='name'
 type='text'
 value={name}
@@ -47,7 +47,7 @@ id={nameId}
 onChange={onHandleInput}
 />
 <LabelForEmail htmlFor={emailId}>Enter your email</LabelForEmail>
-<input
+<InputRegistrationForm
 name='email'
 type='text'
 value={email}
@@ -55,7 +55,7 @@ id={emailId}
 onChange={onHandleInput}
 />
 <LabelForPassword htmlFor={passwordId}>Enter your password</LabelForPassword>
-<input
+<InputRegistrationForm
 name='password'
 type='text'
 value={password}

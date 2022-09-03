@@ -14,3 +14,6 @@ export const LabelForEmail=styled.label`
 
 export const LabelForPassword=styled.label`
 `
+
+export const InputRegistrationForm=styled.input`
+display:block;`

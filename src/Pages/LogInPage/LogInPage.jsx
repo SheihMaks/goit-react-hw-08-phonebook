@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { FormContainer,Form,LabelForEmail, LabelForPassword } from "./LogInPage.styled"
+import { FormContainer,Form,LabelForLogInForm,InputLogInForm } from "./LogInPage.styled"
 import { useLogInMutation } from "components/Redux/FetchUser"
 import { nanoid } from "nanoid"
 
@@ -36,16 +36,16 @@ const resetState=()=>{
 
 return(<FormContainer>
 <Form onSubmit={formHandleSubmit}>
-<LabelForEmail htmlFor={emailId}>Enter your Email</LabelForEmail>
-<input
+<LabelForLogInForm htmlFor={emailId}>Email</LabelForLogInForm>
+<InputLogInForm
 name='email'
 type='text'
 onChange={onHandleInput}
 value={email}
 id={emailId}
 />
-<LabelForPassword htmlFor={passwordId}>Enter your password</LabelForPassword>
-<input
+<LabelForLogInForm htmlFor={passwordId}>Password</LabelForLogInForm>
+<InputLogInForm
 name='password'
 type='text'
 onChange={onHandleInput}
