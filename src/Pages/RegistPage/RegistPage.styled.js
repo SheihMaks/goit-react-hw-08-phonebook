@@ -1,19 +1,18 @@
 import styled from "styled-components";
 
-export const RegistViewContainer=styled.div`
+export const RegistFormContainer=styled.div`
+padding:10% 35%;
 `
 
 export const FormRegist=styled.form`
+display:flex;
+flex-direction:column;
 `
 
-export const LabelForName=styled.label`
-`
-
-export const LabelForEmail=styled.label`
-`
-
-export const LabelForPassword=styled.label`
+export const LabelForRegistrationForm=styled.label`
+margin-bottom:1%;
 `
 
 export const InputRegistrationForm=styled.input`
-display:block;`
+margin-bottom:2%;
+`

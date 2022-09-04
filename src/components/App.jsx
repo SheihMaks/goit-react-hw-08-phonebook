@@ -7,16 +7,23 @@ import { RegistPage } from "Pages/RegistPage/RegistPage";
 import { HomePage } from "Pages/HomePage/HomePage";
 import { authSelectors } from "components/Redux/sliceAuth";
 import { useSelector } from "react-redux";
+import { Routes,Route } from "react-router-dom";
 
 export const App=()=>{
   const{getIsLoggedIn}=authSelectors;
   const isLogged=useSelector(getIsLoggedIn)
   
   return (<>
-  <SharedAppBar/>
-  <RegistPage/>
-  <LoginPage/>
-  <HomePage/>
-  {isLogged && <PhoneBookPage/>}</>)
+  
+  <Routes>
+  <Route path='/' element={<SharedAppBar/>}>
+  <Route index element={<HomePage/>}/>
+  <Route path='register' element={<RegistPage/>}/>
+  <Route path='login' element={<LoginPage/>}/>
+  
+  {isLogged && <PhoneBookPage/>}
+  </Route>
+  </Routes>
+  </>)
   }
 

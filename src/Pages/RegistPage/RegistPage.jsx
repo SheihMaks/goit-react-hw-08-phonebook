@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import { RegistViewContainer,FormRegist,LabelForName,LabelForEmail,LabelForPassword,InputRegistrationForm } from "./RegistPage.styled";
+import { RegistFormContainer,FormRegist,LabelForRegistrationForm,InputRegistrationForm } from "./RegistPage.styled";
+import { useRegistrationNewUserMutation } from "components/Redux/FetchUser";
 
 export const RegistPage=()=>{
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
+    const [registrationNewUser]=useRegistrationNewUserMutation()
     const nameId=nanoid()
     const emailId=nanoid()
     const passwordId=nanoid()
@@ -26,7 +28,7 @@ export const RegistPage=()=>{
         }
         const FormHandleSubmit=(e)=>{
             e.preventDefault()
-            
+            registrationNewUser({name,email,password})
             resetState()
         }
 
@@ -36,9 +38,9 @@ export const RegistPage=()=>{
             setPassword('')
         }
     
-    return(<RegistViewContainer>
+    return(<RegistFormContainer>
         <FormRegist onSubmit={FormHandleSubmit}>
-<LabelForName htmlFor={nameId}>Enter your name</LabelForName>
+<LabelForRegistrationForm htmlFor={nameId}>Enter your name</LabelForRegistrationForm>
 <InputRegistrationForm
 name='name'
 type='text'
@@ -46,7 +48,7 @@ value={name}
 id={nameId}
 onChange={onHandleInput}
 />
-<LabelForEmail htmlFor={emailId}>Enter your email</LabelForEmail>
+<LabelForRegistrationForm htmlFor={emailId}>Enter your email</LabelForRegistrationForm>
 <InputRegistrationForm
 name='email'
 type='text'
@@ -54,7 +56,7 @@ value={email}
 id={emailId}
 onChange={onHandleInput}
 />
-<LabelForPassword htmlFor={passwordId}>Enter your password</LabelForPassword>
+<LabelForRegistrationForm htmlFor={passwordId}>Enter your password</LabelForRegistrationForm>
 <InputRegistrationForm
 name='password'
 type='text'
@@ -64,6 +66,6 @@ onChange={onHandleInput}
 />
 <button type='submit'>Register</button>
         </FormRegist>
-    </RegistViewContainer>
+    </RegistFormContainer>
     )
 }

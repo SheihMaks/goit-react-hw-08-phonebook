@@ -2,9 +2,7 @@ import { AuthNavContainer, AuthNavLink } from "./AuthNav.styled"
 
 export const AuthNav=()=>{
     return(<AuthNavContainer>
-        <AuthNavLink to='users/signUp'>Регистрация</AuthNavLink>
-        <AuthNavLink to='users/login'>Войти</AuthNavLink>
-    </AuthNavContainer>
-        
-    )
+        <AuthNavLink to='/register'>Регистрация</AuthNavLink>
+        <AuthNavLink to='/login'>Войти</AuthNavLink>
+    </AuthNavContainer>)
 }
