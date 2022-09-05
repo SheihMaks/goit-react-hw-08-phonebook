@@ -2,7 +2,7 @@ import { createApi,fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const userApi=createApi({
     reducerPath:'userApi',
-    baseQuery:fetchBaseQuery({baseURL:'https://connections-api.herokuapp.com/users',
+    baseQuery:fetchBaseQuery({baseUrl:'https://connections-api.herokuapp.com/users',
     prepareHeaders: (headers, { getState }) => {
         const token = getState().users.token;
         if (token) {
@@ -11,7 +11,7 @@ export const userApi=createApi({
         return headers;
         },
 }),
-    tagTypes:['User'],
+    // tagTypes:['User'],
     endpoints:builder=>({
         logIn:builder.mutation({
             query:(payload)=>({
@@ -19,7 +19,7 @@ export const userApi=createApi({
                 method:'POST',
                 body:payload,
             }),
-            providesTags:['User']
+            // providesTags:['User']
         }),
         registrationNewUser:builder.mutation({
             query:(payload)=>({
@@ -27,12 +27,21 @@ export const userApi=createApi({
                 method:'POST',
                 body:payload,
             }),
-            invalidatesTags:['User']
+            // invalidatesTags:['User']
         }),
         getCurrentUser:builder.query({
             query:()=>'/current',
         }),
+        logOut:builder.mutation({
+            query:payload=>({
+                url:'/logOut',
+                method:'POST',
+                body:payload
+
+            })
+            
+        })
     })
 })
 
-export const{useGetCurrentUserQuery,useLogInMutation,useRegistrationNewUserMutation}=userApi;
+export const{useGetCurrentUserQuery,useLogInMutation,useRegistrationNewUserMutation, useLogoutMutation}=userApi;
