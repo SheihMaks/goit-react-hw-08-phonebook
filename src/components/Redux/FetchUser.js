@@ -33,10 +33,9 @@ export const userApi=createApi({
             query:()=>'/current',
         }),
         logOut:builder.mutation({
-            query:payload=>({
-                url:'/logOut',
+            query:()=>({
+                url:'/logout',
                 method:'POST',
-                body:payload
 
             })
             

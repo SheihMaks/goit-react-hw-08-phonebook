@@ -9,8 +9,8 @@ export const Header=()=>{
     const isLogged=useSelector(getIsLoggedIn)
     return(<HeaderContainer>
         <LinksContainer>
-        <NavLinkStyled to='/'>Главная</NavLinkStyled>
-        <NavLinkStyled to='contacts'>Контакты</NavLinkStyled>
+        <NavLinkStyled to='/'>Home</NavLinkStyled>
+        <NavLinkStyled to='contacts'>Contacts</NavLinkStyled>
         </LinksContainer>
         <LinksContainer>
         {isLogged ? <UserMenu/> : <AuthNav/>}

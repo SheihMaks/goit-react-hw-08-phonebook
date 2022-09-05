@@ -21,9 +21,10 @@ export const App=()=>{
   <Route path='register' element={<RegistPage/>}/>
   <Route path='login' element={<LoginPage/>}/>
   
-  {isLogged && <PhoneBookPage/>}
+  
   </Route>
   </Routes>
+  {isLogged && <PhoneBookPage/>}
   </>)
   }
 

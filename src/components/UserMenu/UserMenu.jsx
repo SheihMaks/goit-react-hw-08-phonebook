@@ -10,7 +10,7 @@ export const UserMenu=()=>{
     const [logOut]=useLogoutMutation()
     return(<ContainerUserMenu>
         <Avatar src={defaultAvatar} alt='avatar'/>
-        <UserMenuText>Добро пожаловать, {userName}</UserMenuText>
+        <UserMenuText>Welcome, {userName}</UserMenuText>
         <button type='button' onClick={logOut()}>Выйти</button>
     </ContainerUserMenu>
 
