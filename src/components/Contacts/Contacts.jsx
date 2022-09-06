@@ -18,7 +18,7 @@ export const Contacts=({contacts})=>{
 
     return (<ContactsList>
         {contactsList.map((contact)=>{
-            return (<ContactListItem key={contact.id}><Span>{contact.name}: {contact.phone}</Span>
+            return (<ContactListItem key={contact.id}><Span>{contact.name}: {contact.number}</Span>
             <DeleteItemButton type='button' onClick={()=>deleteContact(contact.id)}>Delete</DeleteItemButton >
             </ContactListItem>)})}
     </ContactsList>)

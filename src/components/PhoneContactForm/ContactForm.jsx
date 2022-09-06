@@ -12,17 +12,16 @@ export const ContactForm =({contactsList})=>{
 
   const [addContacts]=useAddContactsMutation();
 
-  const formHandleSubmit=(data) => {
-    data={
-      name:data.name,
-      number:data.number,
-      id:nanoid()
-    } 
+  // const formHandleSubmit=(data) => {
+  //   data={
+  //     name:data.name,
+  //     number:data.number,
+  //   } 
 
-  if (contactsList.find(el=>el.name===data.name)){
-    window.alert(`${data.name} is already in contacts`) } 
-    else{addContacts(data)}
-  }
+  // if (contactsList.find(el=>el.name===data.name)){
+  //   window.alert(`${data.name} is already in contacts`) } 
+  //   else{addContacts(data)}
+  // }
 
 const onHandleInput=(e)=>{
   const {name,value}=e.currentTarget
@@ -36,7 +35,11 @@ const onHandleInput=(e)=>{
   
   const onHandleSubmit=(e)=>{
     e.preventDefault()
-    formHandleSubmit({name,number})
+    if (contactsList.find(el=>el.name===name)){
+      window.alert(`${name} is already in contacts`)} 
+      else{console.log({name,number})
+        addContacts({name,number})}
+    // formHandleSubmit({name,number})
   reset()
   }
 

@@ -15,7 +15,7 @@ export const App=()=>{
   const isLogged=useSelector(getIsLoggedIn)
   const token=useSelector(getToken)
 console.log(token)
-  useGetCurrentUserQuery()
+  useGetCurrentUserQuery(undefined,{skip:!token})
   return (<>
   
   <Routes>

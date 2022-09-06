@@ -40,10 +40,18 @@ extraReducers:builder=>{
         state.isLogged=true;
     });
     builder.addMatcher(
+        userApi.endpoints.registrationNewUser.matchFulfilled,
+        (state,{payload})=>{
+            const{user,token}=payload;
+            state.user.email=user.email;
+            state.user.name=user.name;
+            state.token=token;
+            state.isLogged=true;
+        }
+    );
+    builder.addMatcher(
         userApi.endpoints.getCurrentUser.matchFulfilled,
         (state, {payload})=>{
-            // console.log(payload.email)
-            // console.log(payload.name)
             state.user.email = payload.email;
             state.user.name = payload.name;
             state.isLogged = true;
