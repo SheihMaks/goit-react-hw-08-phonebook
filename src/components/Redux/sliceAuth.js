@@ -42,9 +42,11 @@ extraReducers:builder=>{
     builder.addMatcher(
         userApi.endpoints.getCurrentUser.matchFulfilled,
         (state, {payload})=>{
-            state.user.email = payload.users.email;
-            state.user.name = payload.users.name;
-            state.isLoggedIn = true;
+            // console.log(payload.email)
+            // console.log(payload.name)
+            state.user.email = payload.email;
+            state.user.name = payload.name;
+            state.isLogged = true;
         });
         builder.addMatcher(
             userApi.endpoints.logOut.matchFulfilled,
@@ -69,11 +71,16 @@ export const persistSliceUser=persistReducer(persistConfig,sliceAuth.reducer)
 
 //Selectors
 
-const getIsLoggedIn=state=>state.users.isLogged
+
 
 const getUserName=state=>state.users.user.name
 
+const getToken=state=>state.users.token
+
+const getIsLoggedIn=state=>state.users.isLogged
+
 export const authSelectors={
     getIsLoggedIn,
-    getUserName
+    getUserName,
+    getToken
 }

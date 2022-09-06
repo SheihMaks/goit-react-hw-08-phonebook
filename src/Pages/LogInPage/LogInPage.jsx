@@ -14,8 +14,8 @@ const [logIn]=useLogInMutation();
 const emailId=nanoid()
 const passwordId=nanoid()
 
-// const isLogged=useSelector(authSelectors.getIsLoggedIn)
-
+const isLogged=useSelector(authSelectors.getIsLoggedIn)
+console.log(isLogged)
 const onHandleInput=(e)=>{
     const{name,value}=e.currentTarget
     switch(name){

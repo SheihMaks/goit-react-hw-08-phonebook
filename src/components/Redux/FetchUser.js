@@ -2,15 +2,18 @@ import { createApi,fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const userApi=createApi({
     reducerPath:'userApi',
-    baseQuery:fetchBaseQuery({baseUrl:'https://connections-api.herokuapp.com/users',
-    prepareHeaders: (headers, { getState }) => {
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'https://connections-api.herokuapp.com/users',
+    
+        prepareHeaders: (headers, { getState }) => {
         const token = getState().users.token;
+        console.log(token)
         if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
+            headers.set('Authorization', `Bearer ${token}`);
         }
         return headers;
         },
-}),
+        }),
     // tagTypes:['User'],
     endpoints:builder=>({
         logIn:builder.mutation({
@@ -36,10 +39,10 @@ export const userApi=createApi({
             query:()=>({
                 url:'/logout',
                 method:'POST',
-            })
+            }),
             
-        })
-    })
-})
+        }),
+    }),
+});
 
-export const{useGetCurrentUserQuery,useLogInMutation,useRegistrationNewUserMutation, useLogOutMutation}=userApi;
+export const{useGetCurrentUserQuery,useLogInMutation,useRegistrationNewUserMutation,useLogOutMutation}=userApi;

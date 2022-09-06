@@ -8,12 +8,14 @@ import { HomePage } from "Pages/HomePage/HomePage";
 import { authSelectors } from "components/Redux/sliceAuth";
 import { useSelector } from "react-redux";
 import { Routes,Route } from "react-router-dom";
-import {useGetCurrentUserQuery} from './Redux/FetchUser'
+import {useGetCurrentUserQuery} from './Redux/FetchUser';
 export const App=()=>{
-  useGetCurrentUserQuery()
-  const{getIsLoggedIn}=authSelectors;
-  const isLogged=useSelector(getIsLoggedIn)
   
+  const{getIsLoggedIn,getToken}=authSelectors;
+  const isLogged=useSelector(getIsLoggedIn)
+  const token=useSelector(getToken)
+console.log(token)
+  useGetCurrentUserQuery()
   return (<>
   
   <Routes>
