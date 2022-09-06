@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { ContactsList,ContactListItem, DeleteItemButton, Span } from './Contacts.styled';
+import { ContactItem } from 'components/ContactItem/ContactItem';
+import { ContactsList} from './Contacts.styled';
 import { getFilter } from 'components/Redux/sliceContacts';
-import { useDeleteContactMutation } from 'components/Redux/fetchContacts';
+
 
 export const Contacts=({contacts})=>{
     const onFilter=useSelector(getFilter)
 
-    const [deleteContact]=useDeleteContactMutation()
+    
     
     const getContactsFiltered=()=>{
         const normalizedFilterName=onFilter.toLowerCase()
@@ -18,9 +19,7 @@ export const Contacts=({contacts})=>{
 
     return (<ContactsList>
         {contactsList.map((contact)=>{
-            return (<ContactListItem key={contact.id}><Span>{contact.name}: {contact.number}</Span>
-            <DeleteItemButton type='button' onClick={()=>deleteContact(contact.id)}>Delete</DeleteItemButton >
-            </ContactListItem>)})}
+            return (<ContactItem key={contact.id} contact={contact}/>)})}
     </ContactsList>)
 }
 

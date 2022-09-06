@@ -13,12 +13,12 @@ border-bottom:solid 1px grey;
 export const LinksContainer=styled.div`
 display:flex;
 justify-content:center;
-margin-right:-20px;
+column-gap:20px;
 `
 
 export const NavLinkStyled=styled(NavLink)`
 text-decoration:none;
-margin-right:20px;
+
 padding:4px 10px;
 font-weight:600;
 border:1px solid transparent;
