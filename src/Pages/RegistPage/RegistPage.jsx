@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import { RegistFormContainer,FormRegist,LabelForRegistrationForm,InputRegistrationForm } from "./RegistPage.styled";
+import { RegistFormContainer,FormRegist,LabelForRegistrationForm,NameInput,InputRegistrationForm } from "./RegistPage.styled";
 import { useRegistrationNewUserMutation } from "components/Redux/FetchUser";
+import { ErrorInInput } from "components/ErrorInInput/ErrorInInput";
 
 export const RegistPage=()=>{
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
+    const [errorForm,setErrorForm]=useState(false)
     const [registrationNewUser]=useRegistrationNewUserMutation()
     const nameId=nanoid()
     const emailId=nanoid()
     const passwordId=nanoid()
-
-    
 
     const onHandleInput=(e)=>{
         const{name,value}=e.currentTarget
@@ -28,6 +28,11 @@ export const RegistPage=()=>{
         }
         const FormHandleSubmit=(e)=>{
             e.preventDefault()
+            setErrorForm(false)
+            if(name.trim()==='' || email.trim()==='' || password.trim()===''){
+                setErrorForm(true)
+                return
+            }
             registrationNewUser({name,email,password})
             resetState()
         }
@@ -40,30 +45,34 @@ export const RegistPage=()=>{
     
     return(<RegistFormContainer>
         <FormRegist onSubmit={FormHandleSubmit}>
-<LabelForRegistrationForm htmlFor={nameId}>Enter your name</LabelForRegistrationForm>
+<LabelForRegistrationForm><NameInput>Name:</NameInput>
 <InputRegistrationForm
 name='name'
 type='text'
 value={name}
 id={nameId}
 onChange={onHandleInput}
-/>
-<LabelForRegistrationForm htmlFor={emailId}>Enter your email</LabelForRegistrationForm>
+placeholder='Enter your name'
+/></LabelForRegistrationForm>
+<LabelForRegistrationForm><NameInput>Email:</NameInput>
 <InputRegistrationForm
 name='email'
-type='text'
+type='email'
 value={email}
 id={emailId}
 onChange={onHandleInput}
-/>
-<LabelForRegistrationForm htmlFor={passwordId}>Enter your password</LabelForRegistrationForm>
+placeholder='Enter your email'
+/></LabelForRegistrationForm>
+<LabelForRegistrationForm><NameInput>Password:</NameInput>
 <InputRegistrationForm
 name='password'
 type='text'
 value={password}
 id={passwordId}
 onChange={onHandleInput}
-/>
+placeholder='Enter your password'
+/></LabelForRegistrationForm>
+{errorForm && <ErrorInInput errorMessage='Please fill in all input fields'/>}
 <button type='submit'>Register</button>
         </FormRegist>
     </RegistFormContainer>

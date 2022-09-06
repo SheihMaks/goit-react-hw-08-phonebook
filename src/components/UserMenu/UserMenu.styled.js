@@ -8,8 +8,9 @@ align-items:center;
 export const Avatar=styled.img`
 width:30px;
 height:30px;
-margin-right:10px`
+margin-right:5px;`
 
 export const UserMenuText=styled.span`
+margin-right: 5px;
 `
 

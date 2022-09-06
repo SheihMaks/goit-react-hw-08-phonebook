@@ -36,11 +36,10 @@ export const userApi=createApi({
             query:()=>({
                 url:'/logout',
                 method:'POST',
-
             })
             
         })
     })
 })
 
-export const{useGetCurrentUserQuery,useLogInMutation,useRegistrationNewUserMutation, useLogoutMutation}=userApi;
+export const{useGetCurrentUserQuery,useLogInMutation,useRegistrationNewUserMutation, useLogOutMutation}=userApi;
