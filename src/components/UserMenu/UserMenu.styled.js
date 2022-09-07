@@ -11,6 +11,6 @@ height:30px;
 margin-right:5px;`
 
 export const UserMenuText=styled.span`
-margin-right: 5px;
+margin-right: 8px;
 `
 
