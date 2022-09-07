@@ -7,6 +7,8 @@ width:100%;
 font-weight:600;
 margin-bottom:10px;
 `
+export const ContactContainer=styled.div`
+`
 
 export const Span=styled.span`
 `

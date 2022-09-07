@@ -19,7 +19,14 @@ export const Contacts=({contacts})=>{
 
     return (<ContactsList>
         {contactsList.map((contact)=>{
-            return (<ContactItem key={contact.id} contact={contact}/>)})}
+            const{id,name,number}=contact;
+            return (
+            <ContactItem 
+            key={id} 
+            name={name}
+            number={number}
+            id={id}
+            />)})}
     </ContactsList>)
 }
 
