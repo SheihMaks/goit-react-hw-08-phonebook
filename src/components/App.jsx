@@ -10,8 +10,8 @@ import { Routes,Route } from "react-router-dom";
 import {useGetCurrentUserQuery} from './Redux/FetchUser';
 
 export const App=()=>{
-  const{getIsLoggedIn,getToken}=authSelectors;
-  const isLogged=useSelector(getIsLoggedIn);
+  const{getToken}=authSelectors;
+  // const isLogged=useSelector(getIsLoggedIn);
   const token=useSelector(getToken);
   
   useGetCurrentUserQuery(undefined,{skip:!token});
