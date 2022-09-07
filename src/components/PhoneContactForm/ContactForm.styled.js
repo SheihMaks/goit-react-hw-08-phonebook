@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const ContactFormContainer=styled.div`
 width:auto%;
 padding:15px;
-border: 1px solid black;`
+border: 1px solid black;
+border-radius:5px;`
 
 export const Form=styled.form`font-weight:600;
 font-size:22px;`
@@ -16,7 +17,8 @@ font-size:22px;`
 
 export const Input=styled.input`
 display:block;
-margin-bottom:20px;`
+margin-bottom:20px;
+background-color:antiquewhite;`
 
 export const Button=styled.button`
 padding:4px;

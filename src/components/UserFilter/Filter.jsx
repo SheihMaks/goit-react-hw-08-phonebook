@@ -17,6 +17,7 @@ export const Filter=({title})=>{
     onChange={(e)=>dispatch(setFilter(e.currentTarget.value))} 
     value={onFilter}
     id={filterId}
+    placeholder='Search...'
     /></>)}
 
     Filter.propTypes={

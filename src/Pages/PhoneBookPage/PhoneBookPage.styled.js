@@ -4,8 +4,9 @@ export const PhonebookApp=styled.div`
 padding:20px;
 margin: 0 auto;
 margin-top:25px;
-width:50%;
-background-color:#f7f0f0;
+width:60%;
+background-color:#94ffd1;
+border-radius:4%;
 `
 
 export const HeaderApp=styled.h1`

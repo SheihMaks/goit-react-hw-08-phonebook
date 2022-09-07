@@ -13,6 +13,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input {
+  outline: none;
+  border-radius:5px;
+}
+
 p {
   margin:0;
   padding:0;
