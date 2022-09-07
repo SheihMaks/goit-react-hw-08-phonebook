@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const PhonebookApp=styled.div`
-padding:20px;
-margin: 0 auto;
-margin-top:25px;
+padding:0.5% 2.5%;
+margin: 5% auto;
 width:60%;
 background-color:#94ffd1;
-border-radius:4%;
+border-radius:7px;
 `
 
 export const HeaderApp=styled.h1`

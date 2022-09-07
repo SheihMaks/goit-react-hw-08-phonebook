@@ -13,6 +13,7 @@ column-gap:5px;
 `
 export const InputForEdit=styled.input`
 width:45%;
+background-color:antiquewhite;
 `
 
 export const ContactContainer=styled.div`

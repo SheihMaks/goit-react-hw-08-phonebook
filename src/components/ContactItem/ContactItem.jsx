@@ -6,11 +6,11 @@ import { useDeleteContactMutation } from 'components/Redux/fetchContacts';
 import { useEditContactMutation } from 'components/Redux/fetchContacts';
 
 export const ContactItem=({name,number,id})=>{
-    const[editableItemName,setEditableItemName]=useState(name)
-    const[editableItemNumber,setEditableItemNumber]=useState(number)
-    const[edit,setEdit]=useState(false)
-    const nameId=nanoid()
-    const numberId=nanoid()
+    const[editableItemName,setEditableItemName]=useState(name);
+    const[editableItemNumber,setEditableItemNumber]=useState(number);
+    const[edit,setEdit]=useState(false);
+    const nameId=nanoid();
+    const numberId=nanoid();
     const [deleteContact]=useDeleteContactMutation();
     const [editContact]=useEditContactMutation();
 
@@ -23,7 +23,7 @@ export const ContactItem=({name,number,id})=>{
             break;
             default:window.alert('Такой тип ввода не обрабатывается')
         }
-    }
+    };
 
     const saveEditedContact=()=>{
         setEdit(false)
@@ -32,9 +32,8 @@ export const ContactItem=({name,number,id})=>{
         }
         editContact({name:editableItemName,number:editableItemNumber,id})
         
-    }
+    };
     
-
     return(<ContactListItem>
     {edit ? 
     <ContainerInputForEdit>
@@ -56,5 +55,5 @@ export const ContactItem=({name,number,id})=>{
 ContactItem.propTypes={
     name:PropTypes.string.isRequired,
     number:PropTypes.string.isRequired,
-    id:PropTypes.string.isRequired
+    id:PropTypes.string.isRequired,
 }

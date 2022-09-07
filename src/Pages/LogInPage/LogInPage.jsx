@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { FormContainer,Form,LabelForLogInForm,InputLogInForm,NameInput } from "./LogInPage.styled"
+import { FormContainer,Form,LabelForLogInForm,InputLogInForm,NameInput } from "./LogInPage.styled";
+import { Button } from "components/Buttons/ButtonLogInAndRegistration/Button";
 import { useLogInMutation,  } from "components/Redux/FetchUser"
 import { nanoid } from "nanoid"
 import { useSelector } from "react-redux"
@@ -65,7 +66,7 @@ id={passwordId}
 placeholder='Enter your password'
 /></LabelForLogInForm>
 {error && <ErrorInInput errorMessage='Invalid Email or password'/>}
-<button type='submit'>Log in</button>
+<Button buttonText="Log In"/>
 </Form>
 </FormContainer>)
 }

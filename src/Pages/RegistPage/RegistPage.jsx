@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
 import { RegistFormContainer,FormRegist,LabelForRegistrationForm,NameInput,InputRegistrationForm } from "./RegistPage.styled";
+import { Button } from "components/Buttons/ButtonLogInAndRegistration/Button";
 import { useRegistrationNewUserMutation } from "components/Redux/FetchUser";
 import { ErrorInInput } from "components/ErrorInInput/ErrorInInput";
 
@@ -73,8 +74,8 @@ onChange={onHandleInput}
 placeholder='Enter your password'
 /></LabelForRegistrationForm>
 {errorForm && <ErrorInInput errorMessage='Please fill in all input fields'/>}
-<button type='submit'>Register</button>
-        </FormRegist>
-    </RegistFormContainer>
+<Button buttonText="Register"/>
+</FormRegist>
+</RegistFormContainer>
     )
 }
