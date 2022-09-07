@@ -7,9 +7,16 @@ width:100%;
 font-weight:600;
 margin-bottom:10px;
 `
-export const ContactContainer=styled.div`
+export const ContainerInputForEdit=styled.div`
+display:flex;
+column-gap:5px;
+`
+export const InputForEdit=styled.input`
+width:45%;
 `
 
+export const ContactContainer=styled.div`
+`
 export const Span=styled.span`
 `
 
@@ -19,6 +26,7 @@ column-gap:5px;
 `
 
 export const DeleteItemButton =styled.button`
+width:100%;
 padding:auto;
 cursor:pointer;
 box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -27,6 +35,7 @@ box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 };`
 
 export const EditItemButton=styled.button`
+width:100%;
 padding:auto;
 cursor:pointer;
 box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);

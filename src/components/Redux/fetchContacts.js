@@ -30,11 +30,20 @@ export const contactsApi = createApi({
         deleteContact: builder.mutation({
             query:(contactId)=>({
                 url:`/contacts/${contactId}`,
-                method:'DELETE'
+                method:'DELETE',
+            }),
+            invalidatesTags:['Contact'],
+        }),
+        editContact:builder.mutation({
+            query:({id,name,number})=>({
+                url:`/contacts/${id}`,
+                method:'PATCH',
+                body:{name,number},
             }),
             invalidatesTags:['Contact'],
         }),
     }),
-})
+});
 
-export const { useGetContactsQuery, useAddContactsMutation,useDeleteContactMutation } = contactsApi
+
+export const { useGetContactsQuery, useAddContactsMutation,useDeleteContactMutation, useEditContactMutation } = contactsApi
