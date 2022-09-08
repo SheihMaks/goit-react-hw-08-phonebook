@@ -10,12 +10,11 @@ import { Routes,Route } from "react-router-dom";
 import {useGetCurrentUserQuery} from './Redux/FetchUser';
 
 export const App=()=>{
-  const{getToken}=authSelectors;
+  const { getToken }=authSelectors;
   // const isLogged=useSelector(getIsLoggedIn);
-  const token=useSelector(getToken);
-  
+  const token =useSelector(getToken);
+  console.log(token)
   useGetCurrentUserQuery(undefined,{skip:!token});
-  
   return (<>
   <Routes>
     <Route path='/' element={<SharedAppBar/>}>

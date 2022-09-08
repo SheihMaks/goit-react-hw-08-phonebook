@@ -56,15 +56,19 @@ extraReducers:builder=>{
             state.user.name = payload.name;
             state.isLogged = true;
         });
-        builder.addMatcher(
-            userApi.endpoints.logOut.matchFulfilled,
+    builder.addMatcher(
+        userApi.endpoints.getCurrentUser.matchRejected,
+            (state,{payload})=>{
+                if(payload.status===401){
+                    state.token=``
+                }
+        })
+    builder.addMatcher(
+        userApi.endpoints.logOut.matchFulfilled,
             ()=>{
                 return {...initialState}
             }
-        )
-    
-}
-
+        )}
 })
 
 const persistConfig = {
