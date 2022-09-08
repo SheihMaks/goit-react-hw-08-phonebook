@@ -52,17 +52,19 @@ extraReducers:builder=>{
     builder.addMatcher(
         userApi.endpoints.getCurrentUser.matchFulfilled,
         (state, {payload})=>{
+            console.log(payload)
             state.user.email = payload.email;
             state.user.name = payload.name;
             state.isLogged = true;
         });
-    builder.addMatcher(
-        userApi.endpoints.getCurrentUser.matchRejected,
-            (state,{payload})=>{
-                if(payload.status===401){
-                    state.token=``
-                }
-        });
+    // builder.addMatcher(
+    //     userApi.endpoints.getCurrentUser.matchRejected,
+    //         (state,{payload})=>{
+    //             console.log(payload)
+    //             if(payload.status===401){
+    //                 state.token=``
+    //             }
+    //     });
     builder.addMatcher(
         userApi.endpoints.logOut.matchFulfilled,
             ()=>{

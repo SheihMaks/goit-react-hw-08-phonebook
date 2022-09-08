@@ -8,6 +8,7 @@ import { authSelectors } from "components/Redux/sliceAuth";
 import { useSelector } from "react-redux";
 import { Routes,Route } from "react-router-dom";
 import {useGetCurrentUserQuery} from './Redux/FetchUser';
+import { PrivateRoutes } from "./PrivateRoutes/PrivateRoutes";
 
 export const App=()=>{
   const { getToken }=authSelectors;
@@ -21,7 +22,9 @@ export const App=()=>{
       <Route index element={<HomePage/>}/>
       <Route path='register' element={<RegistPage/>}/>
       <Route path='login' element={<LoginPage/>}/>
+      <Route path='/' element={<PrivateRoutes/>}>
       <Route path='contacts' element={<PhoneBookPage/>}/>
+      </Route>
     </Route>
   </Routes>
 
