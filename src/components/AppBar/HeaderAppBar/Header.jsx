@@ -10,7 +10,7 @@ export const Header=()=>{
     return(<HeaderContainer>
         <LinksContainer>
         <NavLinkStyled to='/'>Home</NavLinkStyled>
-        <NavLinkStyled to='contacts'>Contacts</NavLinkStyled>
+        {isLogged && <NavLinkStyled to='contacts'>Contacts</NavLinkStyled>}
         </LinksContainer>
         <LinksContainer>
         {isLogged ? <UserMenu/> : <AuthNav/>}
