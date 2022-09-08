@@ -62,7 +62,7 @@ extraReducers:builder=>{
                 if(payload.status===401){
                     state.token=``
                 }
-        })
+        });
     builder.addMatcher(
         userApi.endpoints.logOut.matchFulfilled,
             ()=>{
