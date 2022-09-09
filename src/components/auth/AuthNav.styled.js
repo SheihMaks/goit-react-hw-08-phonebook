@@ -12,7 +12,7 @@ text-decoration:none;
 font-weight:600;
 padding:4px 10px;
 border:solid 1px transparent;
-border-radius:10%;
+border-radius:5px;
 &.active{
     border:solid 1px grey;
     background-color:#9fe8f5;

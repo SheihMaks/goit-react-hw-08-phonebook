@@ -1,10 +1,36 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const HomePageContainer=styled.div`
-
-margin-top:30%;
+padding:25vh 0;
 `
-
-export const HomePageStartText=styled.p`
+export const GreetingLoggedUser=styled.p`
 text-align:center;
+font-size:32px;
+font-weight:600;
+margin-bottom:7px;`
+
+export const HomePageTextIfLogged=styled.p`
+text-align:center;
+font-size:28px;
+font-weight:600;
+margin-bottom:7px;
 `
+
+export const HomePageTextAccount=styled.p`
+text-align:center;
+font-size:24px;
+margin-bottom:12px;
+`
+export const AuthNavLinkHome=styled(NavLink)`
+text-decoration:none;
+color:blue;
+background-color:#9fe8f5;
+font-weight:600;
+padding:2px 8px;
+font-size:20px;
+border:solid 1px grey;
+border-radius:5px;
+&:hover{
+    background-color:#60c0f7;
+};`

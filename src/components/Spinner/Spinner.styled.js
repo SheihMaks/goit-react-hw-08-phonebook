@@ -3,4 +3,4 @@ import styled from "styled-components";
 export const SpinnerContainer=styled.div`
 display:flex;
 justify-content:center;
-padding-top:15%;`
+padding-top:35vh;`

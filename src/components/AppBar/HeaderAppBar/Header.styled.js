@@ -18,11 +18,10 @@ column-gap:20px;
 
 export const NavLinkStyled=styled(NavLink)`
 text-decoration:none;
-
 padding:4px 10px;
 font-weight:600;
 border:1px solid transparent;
-border-radius:10%;
+border-radius:5px;
 &.active{
     border:solid 1px grey;
     background-color:#9fe8f5;
