@@ -15,8 +15,8 @@ const [logIn]=useLogInMutation();
 const emailId=nanoid()
 const passwordId=nanoid()
 
-const isLogged=useSelector(authSelectors.getIsLoggedIn)
-console.log(isLogged)
+const rejected=useSelector(authSelectors.getErrorServer)
+
 const onHandleInput=(e)=>{
     const{name,value}=e.currentTarget
     switch(name){
@@ -64,8 +64,9 @@ onChange={onHandleInput}
 value={password}
 id={passwordId}
 placeholder='Enter your password'
+
 /></LabelForLogInForm>
-{error && <ErrorInInput errorMessage='Invalid Email or password'/>}
+{(error || rejected) && <ErrorInInput errorMessage='Invalid Email or password'/>}
 <Button buttonText="Log In"/>
 </Form>
 </FormContainer>)

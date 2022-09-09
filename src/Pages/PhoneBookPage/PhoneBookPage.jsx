@@ -4,10 +4,11 @@ import { ContactForm } from "components/PhoneContactForm/ContactForm";
 import {Contacts} from 'components/Contacts/Contacts';
 import { Filter } from "components/UserFilter/Filter";
 import {useGetContactsQuery} from 'components/Redux/fetchContacts';
+import { Spinner } from "components/Spinner/Spinner";
 
 export const PhoneBookPage=()=>{
   
-  const {data:contacts}=useGetContactsQuery();
+  const {data:contacts,isFetching}=useGetContactsQuery();
   
   return (<PhonebookApp>
       <HeaderApp>Phonebook</HeaderApp>
@@ -18,6 +19,7 @@ export const PhoneBookPage=()=>{
       <Filter 
       title='Find contacts by name'
       />
+      {isFetching && <Spinner/>}
       {contacts && <Contacts
       contacts={contacts}/>}
     </PhonebookApp>)

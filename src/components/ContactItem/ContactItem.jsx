@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState } from "react";
 import { nanoid } from 'nanoid';
+import { useSelector } from 'react-redux';
+import { getLoadState } from 'components/Redux/sliceContacts';
 import { ContactListItem,ContactContainer,Span,ContainerInputForEdit,InputForEdit,ContainerButtonsItem,DeleteItemButton,EditItemButton } from "./ContactItem.styled"
 import { useDeleteContactMutation } from 'components/Redux/fetchContacts';
 import { useEditContactMutation } from 'components/Redux/fetchContacts';
@@ -13,7 +15,7 @@ export const ContactItem=({name,number,id})=>{
     const numberId=nanoid();
     const [deleteContact]=useDeleteContactMutation();
     const [editContact]=useEditContactMutation();
-
+    const load=useSelector(getLoadState)
     const onEditInput=(e)=>{
         const{name,value}=e.currentTarget;
         switch (name){
@@ -47,7 +49,7 @@ export const ContactItem=({name,number,id})=>{
     <EditItemButton type='button' 
     onClick={ !edit ? ()=>setEdit(true) : saveEditedContact}>{!edit ? 'Edit' : 'Save'}</EditItemButton>
     <DeleteItemButton type='button' 
-    onClick={()=>deleteContact(id)}>Delete</DeleteItemButton>
+    onClick={()=>deleteContact(id)} disabled={load} >Delete</DeleteItemButton>
     </ContainerButtonsItem>
     </ContactListItem>)
 }

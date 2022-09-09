@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { authSelectors } from "components/Redux/sliceAuth";
 import { nanoid } from "nanoid";
 import { RegistFormContainer,FormRegist,LabelForRegistrationForm,NameInput,InputRegistrationForm } from "./RegistPage.styled";
 import { Button } from "components/Buttons/ButtonLogInAndRegistration/Button";
@@ -10,6 +12,7 @@ export const RegistPage=()=>{
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [errorForm,setErrorForm]=useState(false)
+    const rejectedRegistration=useSelector(authSelectors.getErrorRegistration)
     const [registrationNewUser]=useRegistrationNewUserMutation()
     const nameId=nanoid()
     const emailId=nanoid()
@@ -74,6 +77,7 @@ onChange={onHandleInput}
 placeholder='Enter your password'
 /></LabelForRegistrationForm>
 {errorForm && <ErrorInInput errorMessage='Please fill in all input fields'/>}
+{rejectedRegistration && <ErrorInInput errorMessage='Invalid Email or password'/>}
 <Button buttonText="Register"/>
 </FormRegist>
 </RegistFormContainer>

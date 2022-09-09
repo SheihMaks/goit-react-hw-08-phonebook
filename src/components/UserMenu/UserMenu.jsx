@@ -12,7 +12,5 @@ export const UserMenu=()=>{
         <Avatar src={defaultAvatar} alt='avatar'/>
         <UserMenuText>Welcome, {userName}</UserMenuText>
         <ButtonLogOut/>
-    </ContainerUserMenu>
-
-    )
+    </ContainerUserMenu>)
 }
