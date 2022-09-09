@@ -3,13 +3,12 @@ import { useSelector } from 'react-redux';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { ContactsList} from './Contacts.styled';
 import { getFilter } from 'components/Redux/sliceContacts';
+import { Spinner } from 'components/Spinner/Spinner';
 
 
-export const Contacts=({contacts})=>{
+export const Contacts=({contacts,onFetching})=>{
     const onFilter=useSelector(getFilter)
 
-    
-    
     const getContactsFiltered=()=>{
         const normalizedFilterName=onFilter.toLowerCase()
         return contacts.filter(el=> el.name.toLowerCase().includes(normalizedFilterName))
@@ -18,6 +17,7 @@ export const Contacts=({contacts})=>{
     const contactsList = getContactsFiltered();
 
     return (<ContactsList>
+        {onFetching && <Spinner/>}
         {contactsList.map((contact)=>{
             const{id,name,number}=contact;
             return (
@@ -32,4 +32,5 @@ export const Contacts=({contacts})=>{
 
 Contacts.propTypes={
     contacts:PropTypes.array.isRequired,
+    onFetching:PropTypes.bool.isRequired
 }

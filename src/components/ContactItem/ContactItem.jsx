@@ -16,6 +16,7 @@ export const ContactItem=({name,number,id})=>{
     const [deleteContact]=useDeleteContactMutation();
     const [editContact]=useEditContactMutation();
     const load=useSelector(getLoadState)
+    
     const onEditInput=(e)=>{
         const{name,value}=e.currentTarget;
         switch (name){

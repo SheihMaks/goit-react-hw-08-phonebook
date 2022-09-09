@@ -5,7 +5,7 @@ import { SpinnerContainer } from './Spinner.styled';
 export const Spinner=()=>{
 return(<SpinnerContainer>
 <RotatingLines
-  strokeColor="grey"
+  strokeColor="blue"
   strokeWidth="5"
   animationDuration="0.75"
   width="96"
