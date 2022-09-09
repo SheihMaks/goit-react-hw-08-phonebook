@@ -20,12 +20,11 @@ margin-bottom:7px;
 export const HomePageTextAccount=styled.p`
 text-align:center;
 font-size:24px;
-margin-bottom:12px;
+margin-bottom:15px;
 `
 export const AuthNavLinkHome=styled(NavLink)`
-text-decoration:none;
 color:blue;
-background-color:#9fe8f5;
+background-color:#abfff9;
 font-weight:600;
 padding:2px 8px;
 font-size:20px;
