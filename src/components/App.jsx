@@ -6,7 +6,8 @@ import { authSelectors } from "components/Redux/sliceAuth";
 import { useSelector } from "react-redux";
 import { Routes,Route } from "react-router-dom";
 import {useGetCurrentUserQuery} from './Redux/FetchUser';
-import { PrivateRoutes } from "./PrivateRoutes/PrivateRoutes";
+import { PrivateRoutes } from "./Routes/PrivateRoutes";
+import { PublicRoute } from "./Routes/PublicRoutes";
 
 const HomePage=lazy(()=>import ('Pages/HomePage/HomePage').then(module => ({
   default: module.HomePage
@@ -32,9 +33,9 @@ export const App=()=>{
     <Suspense fallback={<Spinner/>}>
   <Routes>
     <Route path='/' element={<SharedAppBar/>}>
-    <Route index element={<HomePage/>}/>
-      <Route path='register' element={<RegistPage/>}/>
-      <Route path='login' element={<LoginPage/>}/>
+    <Route index element={<PublicRoute component={<HomePage/>}/>}/>
+      <Route path='register' element={<PublicRoute restricted redirectTo='/contacts' component={<RegistPage/>}/>}/>
+      <Route path='login' element={<PublicRoute restricted redirectTo='/contacts' component={<LoginPage/>}/>}/>
       <Route path='/' element={<PrivateRoutes/>}>
       <Route path='contacts' element={<PhoneBookPage/>}/>
       </Route>

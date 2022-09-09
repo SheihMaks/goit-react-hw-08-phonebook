@@ -71,7 +71,6 @@ extraReducers:builder=>{
     builder.addMatcher(
         userApi.endpoints.getCurrentUser.matchFulfilled,
         (state, {payload})=>{
-            console.log(payload)
             state.user.email = payload.email;
             state.user.name = payload.name;
             state.isLogged = true;

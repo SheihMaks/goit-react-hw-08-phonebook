@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const LogOutFromAccount=styled.button`
-display:block;
-margin:7px auto 0 auto;
-padding:4px 10px;
+text-decoration:underline;
+padding:2px 8px;
 font-size:20px;
-background-color:#9fe8f5;
+background-color:#abfff9;
 color:blue;
 border:1px solid grey;
 border-radius:5px;

@@ -12,10 +12,10 @@ export const HomePage=()=>{
         <HomePageContainer>
             {isLogged ? <><GreetingLoggedUser>Hello, {userName}!</GreetingLoggedUser>
             <HomePageTextIfLogged>You are in PhoneBookApp</HomePageTextIfLogged>
-            <HomePageTextAccount>If you want to leave your account, click here</HomePageTextAccount>
-            <ButtonLogOutHome/></> 
-            : <>
-            <GreetingLoggedUser>Hello, User!</GreetingLoggedUser>
+            <HomePageTextAccount>If you want to leave your account, click here <ButtonLogOutHome/></HomePageTextAccount>
+            </> 
+            : 
+            <><GreetingLoggedUser>Hello, User!</GreetingLoggedUser>
             <HomePageTextIfLogged>You are in PhoneBookApp</HomePageTextIfLogged>
             <HomePageTextAccount>To sign in to your account, click here <AuthNavLinkHome to='/register'>SignUp</AuthNavLinkHome></HomePageTextAccount>
             <HomePageTextAccount>To sign in to your account, click here <AuthNavLinkHome to='/login'>LogIn</AuthNavLinkHome></HomePageTextAccount></>}
