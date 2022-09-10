@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 import { authSelectors } from "components/Redux/sliceAuth"
 import { ErrorInInput } from "components/ErrorInInput/ErrorInInput"
 
-export const LoginPage=()=>{
+const LoginPage=()=>{
 const[email,setEmail]=useState('')
 const[password,setPassword]=useState('')
 const[error,setError]=useState(false)
@@ -71,3 +71,5 @@ placeholder='Enter your password'
 </Form>
 </FormContainer>)
 }
+
+export default LoginPage

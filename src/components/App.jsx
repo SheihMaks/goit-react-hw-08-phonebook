@@ -7,23 +7,37 @@ import { useSelector } from "react-redux";
 import { Routes,Route } from "react-router-dom";
 import {useGetCurrentUserQuery} from './Redux/FetchUser';
 import { PrivateRoutes } from "./Routes/PrivateRoutes";
-import { PublicRoute } from "./Routes/PublicRoutes";
+import { PublicRoute } from "./Routes/PublicRoutes"; 
 
-const HomePage=lazy(()=>import ('Pages/HomePage/HomePage').then(module => ({
-  default: module.HomePage
-})));
-const PhoneBookPage=lazy(()=>import ('Pages/PhoneBookPage/PhoneBookPage').then(module => ({
-  default: module.PhoneBookPage
-})));
-const LoginPage=lazy(()=>import ('Pages/LogInPage/LogInPage').then(module => ({
-  default: module.LoginPage
-})));
-const RegistPage=lazy(()=>import ('Pages/RegistPage/RegistPage').then(module => ({
-  default: module.RegistPage
-})));
-const NotFound=lazy(()=>import ('Pages/NotFound/NotFound').then(module => ({
-  default: module.NotFound
-})));
+const HomePage=lazy(()=>import ('Pages/HomePage/HomePage'));
+
+// const HomePage=lazy(()=>import ('Pages/HomePage/HomePage').then(module => ({
+//   default: module.HomePage
+// }))); *if export element not default
+
+const PhoneBookPage=lazy(()=>import ('Pages/PhoneBookPage/PhoneBookPage'));
+
+// const PhoneBookPage=lazy(()=>import ('Pages/PhoneBookPage/PhoneBookPage').then(module => ({
+  // default: module.PhoneBookPage
+// }))); *if export element not default
+
+const LoginPage=lazy(()=>import ('Pages/LogInPage/LogInPage'));
+
+// const LoginPage=lazy(()=>import ('Pages/LogInPage/LogInPage').then(module => ({
+//   default: module.LoginPage
+// }))); *if export element not default
+
+const RegistPage=lazy(()=>import ('Pages/RegistPage/RegistPage'));
+
+// const RegistPage=lazy(()=>import ('Pages/RegistPage/RegistPage').then(module => ({
+//   default: module.RegistPage
+// }))); *if export element not default
+
+const NotFound=lazy(()=>import ('Pages/NotFound/NotFound'));
+
+// const NotFound=lazy(()=>import ('Pages/NotFound/NotFound').then(module => ({
+//   default: module.NotFound
+// }))); *if export element not default
 
 export const App=()=>{
   const { getToken }=authSelectors;

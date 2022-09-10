@@ -7,7 +7,7 @@ import { Button } from "components/Buttons/ButtonLogInAndRegistration/Button";
 import { useRegistrationNewUserMutation } from "components/Redux/FetchUser";
 import { ErrorInInput } from "components/ErrorInInput/ErrorInInput";
 
-export const RegistPage=()=>{
+const RegistPage=()=>{
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
@@ -83,3 +83,5 @@ placeholder='Enter your password'
 </RegistFormContainer>
     )
 }
+
+export default RegistPage

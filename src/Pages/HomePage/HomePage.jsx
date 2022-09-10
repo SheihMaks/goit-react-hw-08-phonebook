@@ -4,7 +4,7 @@ import { ButtonLogOutHome } from "components/Buttons/ButtonLogOutHome/ButtonLogO
 import { HomePageContainer,GreetingLoggedUser,HomePageTextIfLogged,HomePageTextAccount,AuthNavLinkHome } from "./HomePage.styled"
 
 
-export const HomePage=()=>{
+const HomePage=()=>{
     
     const isLogged=useSelector(authSelectors.getIsLoggedIn)
     const userName=useSelector(authSelectors.getUserName)
@@ -22,3 +22,5 @@ export const HomePage=()=>{
             </HomePageContainer>
     )
 }
+
+export default HomePage

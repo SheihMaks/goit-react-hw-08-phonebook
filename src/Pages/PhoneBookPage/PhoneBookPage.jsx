@@ -5,7 +5,7 @@ import {Contacts} from 'components/Contacts/Contacts';
 import { Filter } from "components/UserFilter/Filter";
 import {useGetContactsQuery} from 'components/Redux/fetchContacts';
 
-export const PhoneBookPage=()=>{
+const PhoneBookPage=()=>{
   
   const {data:contacts,isFetching}=useGetContactsQuery();
   
@@ -22,3 +22,5 @@ export const PhoneBookPage=()=>{
       contacts={contacts}/>}
     </PhonebookApp>)
   }
+
+  export default PhoneBookPage
