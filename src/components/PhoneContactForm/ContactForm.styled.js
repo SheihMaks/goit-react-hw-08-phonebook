@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContactFormContainer=styled.div`
-width:auto%;
+width:auto;
 padding:15px;
 border: 1px solid black;
 border-radius:5px;`
